@@ -58,7 +58,7 @@ export default function StartScreen({ onStart }: StartScreenProps) {
             <span className="flex items-center gap-1 text-[11px] text-slate-600 font-medium">
               <BookOpen className="w-3 h-3 text-purple-500" /> 문항 수
             </span>
-            <span className="text-xs font-bold text-slate-800 mt-0.5">12문항 (A/B)</span>
+            <span className="text-xs font-bold text-slate-800 mt-0.5">12문항 (4지선다)</span>
           </div>
           <div className="flex flex-col items-center justify-center py-1">
             <span className="flex items-center gap-1 text-[11px] text-slate-600 font-medium">
@@ -70,32 +70,46 @@ export default function StartScreen({ onStart }: StartScreenProps) {
       </div>
 
       {/* 중앙 캐릭터/유형 프리뷰 카드 */}
-      <div className="my-6 relative">
+      <div className="my-5 relative">
         <div className="text-xs font-semibold text-slate-600 mb-2.5 px-1 flex items-center justify-between">
-          <span>발견할 수 있는 4가지 공부 유형</span>
+          <span>발견할 수 있는 5가지 공부 유형</span>
           <Award className="w-3.5 h-3.5 text-indigo-500" />
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5">
-          <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-indigo-300 transition-all">
-            <div className="text-2xl mb-1.5">📐</div>
-            <div className="text-xs font-bold text-slate-800">철저한 전략적 계획러</div>
-            <div className="text-[11px] text-slate-600 mt-0.5 line-clamp-1">스텝바이스텝 루틴 마스터</div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-indigo-300 transition-all">
+            <div className="text-xl mb-1">📐</div>
+            <div className="text-xs font-bold text-slate-800">철저한 계획러</div>
+            <div className="text-[10px] text-slate-600 mt-0.5 line-clamp-1">스텝바이스텝 루틴</div>
           </div>
-          <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-orange-300 transition-all">
-            <div className="text-2xl mb-1.5">⚡</div>
-            <div className="text-xs font-bold text-slate-800">번뜩이는 벼락치기러</div>
-            <div className="text-[11px] text-slate-600 mt-0.5 line-clamp-1">마감 직전 초인적 각성</div>
+          <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-orange-300 transition-all">
+            <div className="text-xl mb-1">⚡</div>
+            <div className="text-xs font-bold text-slate-800">벼락치기 마스터</div>
+            <div className="text-[10px] text-slate-600 mt-0.5 line-clamp-1">마감 직전 초인적 각성</div>
           </div>
-          <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-teal-300 transition-all">
-            <div className="text-2xl mb-1.5">🔍</div>
-            <div className="text-xs font-bold text-slate-800">몰입형 원리 탐구자</div>
-            <div className="text-[11px] text-slate-600 mt-0.5 line-clamp-1">원리 파고드는 학자 스타일</div>
+          <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-teal-300 transition-all">
+            <div className="text-xl mb-1">🔍</div>
+            <div className="text-xs font-bold text-slate-800">몰입형 탐구자</div>
+            <div className="text-[10px] text-slate-600 mt-0.5 line-clamp-1">원리 파고드는 학자형</div>
           </div>
-          <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-purple-300 transition-all">
-            <div className="text-2xl mb-1.5">🤝</div>
-            <div className="text-xs font-bold text-slate-800">시너지 스터디메이트</div>
-            <div className="text-[11px] text-slate-600 mt-0.5 line-clamp-1">함께할 때 강해지는 러너</div>
+          <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-purple-300 transition-all">
+            <div className="text-xl mb-1">🤝</div>
+            <div className="text-xs font-bold text-slate-800">스터디메이트</div>
+            <div className="text-[10px] text-slate-600 mt-0.5 line-clamp-1">함께할 때 시너지</div>
+          </div>
+        </div>
+
+        {/* 신규 5번째 유형 특별 카드 */}
+        <div className="mt-2 p-2.5 rounded-2xl bg-slate-900 text-white flex items-center gap-2.5 shadow-sm">
+          <span className="text-xl shrink-0">🌚</span>
+          <div className="min-w-0 flex-1">
+            <div className="text-xs font-bold text-slate-100 flex items-center gap-1.5">
+              <span>앞길이 캄캄하다</span>
+              <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-rose-500 text-white font-medium">현실공감</span>
+            </div>
+            <div className="text-[10px] text-slate-400 truncate">
+              "아 몰라 침대에서 잘래" 현실도피 만렙러
+            </div>
           </div>
         </div>
       </div>

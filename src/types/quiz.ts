@@ -1,7 +1,9 @@
-export type StudyType = 'planner' | 'sprinter' | 'scholar' | 'social';
+export type StudyType = 'planner' | 'sprinter' | 'scholar' | 'social' | 'hopeless';
+
+export type OptionId = 'A' | 'B' | 'C' | 'D';
 
 export interface Option {
-  id: 'A' | 'B';
+  id: OptionId;
   text: string;
   subText?: string;
   scores: Partial<Record<StudyType, number>>;
@@ -12,7 +14,7 @@ export interface Question {
   category: string;
   question: string;
   emoji: string;
-  options: [Option, Option];
+  options: Option[];
 }
 
 export interface StudyResult {

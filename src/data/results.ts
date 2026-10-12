@@ -43,9 +43,9 @@ export const RESULTS: Record<StudyType, StudyResult> = {
       emoji: '⚡',
     },
     worstPartner: {
-      name: '분위기파 즉흥러',
-      reason: '약속 시간도 안 지키고 계획 없이 그때그때 기분대로 공부하는 모습에 스트레스를 받을 수 있습니다.',
-      emoji: '🌪️',
+      name: '앞길이 캄캄러',
+      reason: '옆에서 "아 몰라 그냥 잘래" 하며 계속 자고 딴짓해서 내 멘탈과 계획까지 흔들리게 만듭니다.',
+      emoji: '🌚',
     },
     studySpot: '정돈된 1인 스터디룸 또는 조용하고 지정석이 있는 독서실',
     bgmRecommendation: '잔잔한 클래식 피아노 or 템포 일정한 로파이(Lo-Fi) 비트',
@@ -98,7 +98,7 @@ export const RESULTS: Record<StudyType, StudyResult> = {
       emoji: '🤯',
     },
     studySpot: '24시간 운영되는 스터디카페 or 긴장감이 유지되는 오픈 라운지',
-    bgmRecommendation: '심장 박통수를 올려주는 Synthwave or 빠른 템포의 EDM 집중 음악',
+    bgmRecommendation: '심장 박동수를 올려주는 Synthwave or 빠른 템포의 EDM 집중 음악',
   },
 
   scholar: {
@@ -199,5 +199,55 @@ export const RESULTS: Record<StudyType, StudyResult> = {
     },
     studySpot: '대화형 스터디룸, 그룹 토론이 가능한 개방형 스터디카페',
     bgmRecommendation: '감성적인 어쿠스틱 카페 플레이리스트 or 재즈 피아노 BGM',
+  },
+
+  hopeless: {
+    type: 'hopeless',
+    title: '앞길이 캄캄하다',
+    subtitle: 'The Hopeless Bed-Lover',
+    badge: '침대와 물아일체 현실도피러',
+    emoji: '🌚',
+    gradient: 'from-slate-700 via-zinc-800 to-neutral-900',
+    accentColor: 'bg-zinc-800 text-white',
+    textColor: 'text-zinc-800',
+    borderColor: 'border-zinc-300',
+    summary:
+      '"아 모르겠다 그냥 누워서 잘래!" 책만 펴면 귀신같이 눈꺼풀이 천근만근 무거워지고, 시험이 다가올수록 "인생 뭐 있나" 초탈하는 스타일입니다. 발등에 불이 떨어지면 그 불로 마시멜로나 구워 먹는 진정한 멘탈의 소유자. 비록 앞길은 칠흑같이 캄캄하지만 침대 속만큼은 세상에서 가장 따뜻합니다.',
+    traits: [
+      '#침대_자석',
+      '#내일의_내가_하겠지',
+      '#책만_펴면_숙면',
+      '#앞길이_캄캄',
+      '#포기는_빠를수록_편해',
+    ],
+    tips: [
+      {
+        title: '일단 침대 밖으로 탈출하기',
+        description:
+          '집이나 침대 주변에 있으면 100% 눕습니다. 옷 대충 입고 카페나 도서관으로 몸을 강제 이송하세요.',
+      },
+      {
+        title: '"딱 10분만 앉아있기" 뇌 속이기 기법',
+        description:
+          '10분만 책 보고 다시 누워도 된다는 마음으로 시작하세요. 시작이 반이라는 말이 가장 절실한 타입입니다.',
+      },
+      {
+        title: '스마트폰을 다른 방에 격리 봉인',
+        description:
+          '숏폼, 릴스, 인스타만 차단해도 시험 성적이 기적처럼 한 등급 올라갑니다.',
+      },
+    ],
+    bestPartner: {
+      name: '철저한 전략적 계획러',
+      reason: '멱살 잡고 깨워서 독서실에 앉혀주고 숙제 검사해 줄 유일한 은인이자 구원투수입니다.',
+      emoji: '📐',
+    },
+    worstPartner: {
+      name: '같은 앞길이 캄캄러',
+      reason: '둘이 만나면 "야 공부하지 말고 치킨이나 먹자"며 사이좋게 심연으로 함께 가라앉습니다.',
+      emoji: '🛌',
+    },
+    studySpot: '누울 수 없는 등받이 없는 딱딱한 나무 의자가 있는 공간',
+    bgmRecommendation: '군대 기상 나팔소리 or 140BPM 긴급 사이렌 경보음',
   },
 };

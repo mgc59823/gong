@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react';
 import { ArrowLeft, Sparkles } from 'lucide-react';
-import { Question } from '@/types/quiz';
+import { Question, OptionId } from '@/types/quiz';
 
 interface QuizScreenProps {
   questions: Question[];
   currentIndex: number;
-  selectedOption: 'A' | 'B' | null;
-  onSelectOption: (optionId: 'A' | 'B') => void;
+  selectedOption: OptionId | null;
+  onSelectOption: (optionId: OptionId) => void;
   onPrev: () => void;
 }
 
@@ -22,9 +22,9 @@ export default function QuizScreen({
   const currentQuestion = questions[currentIndex];
   const total = questions.length;
   const progressPercent = Math.round(((currentIndex + 1) / total) * 100);
-  const [clickedOption, setClickedOption] = useState<'A' | 'B' | null>(null);
+  const [clickedOption, setClickedOption] = useState<OptionId | null>(null);
 
-  const handleSelect = (optionId: 'A' | 'B') => {
+  const handleSelect = (optionId: OptionId) => {
     setClickedOption(optionId);
     onSelectOption(optionId);
     setTimeout(() => {
@@ -33,10 +33,10 @@ export default function QuizScreen({
   };
 
   return (
-    <div className="flex flex-col min-h-screen justify-between p-6 max-w-md mx-auto relative bg-gradient-to-b from-indigo-50/50 via-white to-slate-50">
+    <div className="flex flex-col min-h-screen justify-between p-5 sm:p-6 max-w-md mx-auto relative bg-gradient-to-b from-indigo-50/50 via-white to-slate-50">
       {/* 상단 네비게이션 & 프로그레스 바 */}
-      <div className="pt-2">
-        <div className="flex items-center justify-between mb-4">
+      <div className="pt-1">
+        <div className="flex items-center justify-between mb-3">
           <button
             onClick={onPrev}
             disabled={currentIndex === 0}
@@ -72,20 +72,20 @@ export default function QuizScreen({
       </div>
 
       {/* 질문 본문 영역 */}
-      <div className="my-auto py-8">
-        <div className="inline-block px-3 py-1 rounded-lg bg-indigo-100/70 text-indigo-700 text-xs font-semibold mb-3">
+      <div className="my-auto py-4 sm:py-6">
+        <div className="inline-block px-2.5 py-1 rounded-lg bg-indigo-100/70 text-indigo-700 text-[11px] font-semibold mb-2">
           {currentQuestion.category}
         </div>
 
-        <div className="text-4xl mb-3">{currentQuestion.emoji}</div>
+        <div className="text-3xl mb-2">{currentQuestion.emoji}</div>
 
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug break-keep">
+        <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug break-keep">
           {currentQuestion.question}
         </h2>
       </div>
 
-      {/* A / B 선택지 카드 영역 */}
-      <div className="space-y-3.5 pb-6">
+      {/* 4지선다 (A, B, C, D) 선택지 카드 영역 */}
+      <div className="space-y-2.5 pb-4">
         {currentQuestion.options.map((option) => {
           const isSelected = (clickedOption || selectedOption) === option.id;
 
@@ -94,15 +94,15 @@ export default function QuizScreen({
               key={option.id}
               onClick={() => handleSelect(option.id)}
               id={`option-${option.id.toLowerCase()}`}
-              className={`w-full text-left p-4 rounded-2xl border transition-all duration-150 relative cursor-pointer group active:scale-[0.98] ${
+              className={`w-full text-left p-3.5 rounded-2xl border transition-all duration-150 relative cursor-pointer group active:scale-[0.98] ${
                 isSelected
                   ? 'bg-indigo-600 border-indigo-600 text-white shadow-md shadow-indigo-500/25'
                   : 'bg-white border-slate-200/90 hover:border-indigo-300 text-slate-800 shadow-xs hover:shadow-sm'
               }`}
             >
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-2.5">
                 <span
-                  className={`flex items-center justify-center w-7 h-7 rounded-xl text-xs font-bold shrink-0 transition-colors ${
+                  className={`flex items-center justify-center w-6 h-6 rounded-lg text-xs font-bold shrink-0 transition-colors mt-0.5 ${
                     isSelected
                       ? 'bg-white text-indigo-700'
                       : 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-100'
@@ -111,9 +111,9 @@ export default function QuizScreen({
                   {option.id}
                 </span>
 
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <p
-                    className={`text-sm sm:text-base font-semibold leading-relaxed break-keep ${
+                    className={`text-xs sm:text-sm font-semibold leading-snug break-keep ${
                       isSelected ? 'text-white' : 'text-slate-900'
                     }`}
                   >
@@ -121,7 +121,7 @@ export default function QuizScreen({
                   </p>
                   {option.subText && (
                     <p
-                      className={`text-xs mt-1 leading-normal ${
+                      className={`text-[11px] mt-0.5 leading-tight truncate ${
                         isSelected ? 'text-indigo-100' : 'text-slate-600'
                       }`}
                     >

@@ -7,14 +7,14 @@ import LoadingScreen from '@/components/LoadingScreen';
 import ResultScreen from '@/components/ResultScreen';
 import { QUESTIONS } from '@/data/questions';
 import { RESULTS } from '@/data/results';
-import { StudyType } from '@/types/quiz';
+import { OptionId, StudyType } from '@/types/quiz';
 
 type ScreenStep = 'start' | 'quiz' | 'loading' | 'result';
 
 export default function Home() {
   const [step, setStep] = useState<ScreenStep>('start');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState<Record<number, 'A' | 'B'>>({});
+  const [userAnswers, setUserAnswers] = useState<Record<number, OptionId>>({});
   const [finalResultType, setFinalResultType] = useState<StudyType>('planner');
 
   // 테스트 시작
@@ -25,12 +25,13 @@ export default function Home() {
   };
 
   // 점수 집계 및 결과 유형 판별 로직
-  const calculateResult = (answers: Record<number, 'A' | 'B'>): StudyType => {
+  const calculateResult = (answers: Record<number, OptionId>): StudyType => {
     const scores: Record<StudyType, number> = {
       planner: 0,
       sprinter: 0,
       scholar: 0,
       social: 0,
+      hopeless: 0,
     };
 
     QUESTIONS.forEach((q) => {
@@ -60,7 +61,7 @@ export default function Home() {
   };
 
   // 옵션 선택 시
-  const handleSelectOption = (optionId: 'A' | 'B') => {
+  const handleSelectOption = (optionId: OptionId) => {
     const nextAnswers = { ...userAnswers, [QUESTIONS[currentIndex].id]: optionId };
     setUserAnswers(nextAnswers);
 
